@@ -3,7 +3,6 @@
 <head>
 
     <!-- <script src="scripts.js"></script> -->
-
     <script>
         function replaceFunction() {
             var textValue = document.getElementById('input').value;
@@ -12,13 +11,21 @@
 
         function addFunction() {
             var textValue = document.getElementById('input').value;
+            var selectedColor = document.getElementById('color').value;
             var prevValue = document.getElementById('changethis').innerHTML;
-            var textToChange = document.getElementById('changethis').innerHTML = prevValue + '<div>' + textValue + '</div>';
+            var textToChange = document.getElementById('changethis').innerHTML = prevValue + '<div style="' + 'color: ' + selectedColor + '">' + textValue + '</div>';
         }
 
         function deleteFunction() {
             var textToChange = document.getElementById('changethis').innerHTML = '';
         }
+
+        function addColorFunction() {
+            var selectedColor = document.getElementById('color').value;
+            console.log(selectedColor)
+            var textToChange = document.getElementById('changethis').style = "color: " + selectedColor;
+        }
+
     </script>
 </head>
 
@@ -27,8 +34,10 @@
     <button onclick="replaceFunction()">Replace</button>
     <button onclick="addFunction()">Add</button>
     <button onclick="deleteFunction()">Delete</button>
+    <button onclick="addColorFunction()">Change all color</button>
     <form>
         <input id="input" type="text" name="hello" />
+        <input id="color" type="color" />
     </form>
 </body>
 
